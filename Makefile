@@ -1,10 +1,12 @@
+CC = g++
 prefix = /usr/local
 
 all: bin/sayhello
 
 bin/sayhello: src/sayhello.cpp
 	mkdir -p bin/
-	g++ -o $@ $^ -lm
+#	g++ -o $@ $^ -lm
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $^ -lm
 
 install: bin/sayhello
 	install -D bin/sayhello $(DESTDIR)$(prefix)/bin/sayhello
